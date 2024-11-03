@@ -10,7 +10,7 @@ let scaleFactor;
 img.onload = function() {
     canvas.width = img.width;
     canvas.height = img.height;
-    scaleFactor = fieldWidthCm / canvas.width;  // Calculate scale factor (cm per pixel)
+    scaleFactor = -fieldWidthCm / canvas.width;  // Calculate scale factor (cm per pixel)
     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);  // Draw image on the canvas
 };
 
@@ -20,6 +20,6 @@ canvas.addEventListener('mousemove', function(event) {
     const x = event.clientX - rect.left - canvas.width / 2;  // Calculate x relative to center
     const y = -(event.clientY - rect.top - canvas.height / 2);  // Invert y to match field coordinates
     const xCm = (x * scaleFactor).toFixed(2);
-    const yCm = (y * scaleFactor).toFixed(2);
-    document.getElementById('coordinates').innerText = `X: ${xCm}, Y: ${yCm}`;
+    const yCm = (y * scaleFactor).toFixed(2) * -1;
+    document.getElementById('coordinates').innerText = `X: ${yCm}, Y: ${xCm}`;
 });
