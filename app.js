@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 const img = new Image();
 img.src = 'field.png';  // Change this if the image is named differently or in another directory
 
-const fieldWidthCm = 731.52;  // Change this to the actual width of the field in cm
+const fieldWidthCm = 365.76;  // Change this to the actual width of the field in cm
 let scaleFactor;
 
 // Load the image and set up canvas dimensions
